@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Заявки | Hayanmi Detailing</title>
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Unbounded:wght@300;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="wrap admin">
+    <p class="eyebrow">Hayanmi Detailing</p>
+    <h1 class="display h2" style="margin-top:16px">Заявки</h1>
+
+    <form id="login" class="login">
+      <div class="field"><label for="pass">Пароль</label><input id="pass" type="password" class="input" autocomplete="current-password"></div>
+      <button class="btn" type="submit" style="justify-self:start">Войти</button>
+      <p class="error" id="login-error" hidden></p>
+    </form>
+
+    <section id="board" hidden>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:40px">
+        <span class="mute" id="count"></span>
+        <button class="btn" type="button" id="refresh">Обновить</button>
+        <button class="btn" type="button" id="logout">Выйти</button>
+        <span class="error" id="board-error" hidden></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Дата</th><th>Имя</th><th>Телефон</th><th>Услуга</th><th>Авто</th><th>Удобно</th><th>Комментарий</th><th>Статус</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>

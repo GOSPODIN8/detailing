@@ -1,0 +1,18 @@
+{
+  "name": "hayanmi-detailing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Сайт Hayanmi Detailing с формой заявок",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "node scripts/fetch-assets.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
