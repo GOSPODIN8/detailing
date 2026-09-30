@@ -136,17 +136,22 @@ textarea.input { resize: vertical; min-height: 72px; }
 footer { border-top: 1px solid var(--line); padding: 40px 0; }
 footer .wrap { display: flex; flex-direction: column; gap: 16px; font-size: 14px; }
 
-/* admin */
-.admin { padding: 64px 0; }
-.table-wrap { margin-top: 32px; overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th { text-align: left; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.nowrap { white-space: nowrap; }
-select { background: var(--black); color: var(--white); border: 1px solid var(--line); padding: 6px 8px; font: inherit; font-size: 13px; }
-.btn { border: 1px solid var(--white); padding: 12px 20px; font-size: 14px; transition: background .2s, color .2s; }
-.btn:hover { background: var(--white); color: var(--black); }
-.login { margin-top: 48px; display: grid; gap: 24px; max-width: 420px; }
+/* admin (Telegram Mini App) */
+.admin { padding: 28px 0 48px; }
+.admin .h2 { font-size: clamp(32px, 8vw, 56px); }
+.filters { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.leads { margin-top: 16px; display: grid; gap: 12px; }
+.lead { background: var(--coal); border: 1px solid var(--line); padding: 18px; display: grid; gap: 8px; }
+.lead-top { display: flex; justify-content: space-between; align-items: center; }
+.lead-num { font-family: var(--display); font-size: 12px; letter-spacing: .2em; color: var(--mute); }
+.lead-name { font-size: 20px; font-weight: 600; }
+.lead-service { font-size: 15px; }
+.lead-comment { font-size: 14px; color: var(--mute); border-left: 1px solid var(--line); padding-left: 10px; }
+.lead-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.lead-call, .lead-tg { border: 1px solid var(--white); padding: 10px 14px; font-size: 15px; }
+.lead-call { background: var(--white); color: var(--black); font-weight: 600; }
+.lead-status { margin-top: 8px; }
+.lead-status .chip { padding: 8px 10px; font-size: 13px; }
 
 @media (min-width: 768px) {
   .wrap { padding: 0 40px; }

@@ -2,37 +2,29 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>Заявки | Hayanmi Detailing</title>
   <link rel="icon" href="/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Unbounded:wght@300;500&display=swap">
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
   <main class="wrap admin">
     <p class="eyebrow">Hayanmi Detailing</p>
-    <h1 class="display h2" style="margin-top:16px">Заявки</h1>
+    <h1 class="display h2" style="margin-top:12px">Заявки</h1>
 
-    <form id="login" class="login">
-      <div class="field"><label for="pass">Пароль</label><input id="pass" type="password" class="input" autocomplete="current-password"></div>
-      <button class="btn" type="submit" style="justify-self:start">Войти</button>
-      <p class="error" id="login-error" hidden></p>
-    </form>
+    <p class="mute" id="state" style="margin-top:24px">Загружаем...</p>
 
     <section id="board" hidden>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:40px">
-        <span class="mute" id="count"></span>
-        <button class="btn" type="button" id="refresh">Обновить</button>
-        <button class="btn" type="button" id="logout">Выйти</button>
-        <span class="error" id="board-error" hidden></span>
+      <div class="filters" id="filters">
+        <button type="button" class="chip" data-f="active" aria-pressed="true">В работе</button>
+        <button type="button" class="chip" data-f="all" aria-pressed="false">Все</button>
+        <button type="button" class="chip" data-f="done" aria-pressed="false">Выполнено</button>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Дата</th><th>Имя</th><th>Телефон</th><th>Услуга</th><th>Авто</th><th>Удобно</th><th>Комментарий</th><th>Статус</th></tr></thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
+      <p class="mute small" id="count" style="margin-top:16px"></p>
+      <div class="leads" id="leads"></div>
     </section>
   </main>
   <script src="/admin.js" defer></script>

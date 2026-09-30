@@ -1,4 +1,16 @@
 (function () {
+  // Inside the Telegram bot the page runs as a Mini App.
+  var TG = window.Telegram && window.Telegram.WebApp;
+  var initData = TG && TG.initData ? TG.initData : "";
+  if (initData) {
+    TG.ready();
+    TG.expand();
+    try { TG.setHeaderColor("#0a0a0b"); TG.setBackgroundColor("#0a0a0b"); } catch (e) {}
+    var u = TG.initDataUnsafe && TG.initDataUnsafe.user;
+    var nameInput = document.getElementById("f-name");
+    if (u && nameInput && !nameInput.value) nameInput.value = [u.first_name, u.last_name].filter(Boolean).join(" ");
+  }
+
   var nav = document.getElementById("nav");
   function onScroll() { nav.classList.toggle("solid", window.scrollY > 40); }
   onScroll();
@@ -40,12 +52,13 @@
     showError("");
     btn.disabled = true;
     btn.firstElementChild.textContent = "Отправляем...";
-    fetch("/api/leads", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) })
+    fetch("/api/leads", { method: "POST", headers: { "content-type": "application/json", "x-telegram-init-data": initData }, body: JSON.stringify(data) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.body && res.body.error ? res.body.error : "error");
         form.reset(); pick("tint");
         form.hidden = true; done.hidden = false;
+        if (initData && TG.HapticFeedback) TG.HapticFeedback.notificationOccurred("success");
       })
       .catch(function (err) {
         showError(err && err.message && err.message !== "error" ? err.message : "Не получилось отправить. Позвоните нам или попробуйте ещё раз.");
